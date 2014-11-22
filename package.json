@@ -1,0 +1,19 @@
+{
+  "name": "Problee",
+  "version": "0.0.0",
+  "description": "A mobile site for learning new things",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/AndyCErnst/Problee.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndyCErnst/Problee/issues"
+  },
+  "homepage": "https://github.com/AndyCErnst/Problee"
+}

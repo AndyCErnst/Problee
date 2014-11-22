@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="probleeApp">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/ng-sortable/dist/ng-sortable.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/ng-sortable/dist/ng-sortable.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</head>
+
+<body ng-controller="probleeDragDropController">
+  <div id="content">
+    <h1>Problee</h1>
+    <div class="contrainer-fluid">
+      <div class="row">
+        <div class="col-xs-12" data-ng-model="introText">
+          {{introText}}
+        </div>
+        <div class="col-xs-12">
+          <div id="problem-area">
+
+            <pre class="drop-section">
+              function() {
+              var foo = <div data-as-sortable="dragControlListeners" class="field" data-ng-model="problem.field1">{{problem.field1}}</div>;
+              <div class="field" data-as-sortable="dragControlListeners" data-ng-model="problem.field2">{{problem.field2}}</div> foo;
+            }
+          </pre>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-xs-12" >
+
+      <ul id="word-bank" data-as-sortable="dragControlListeners" data-ng-model="wordBank">
+        <li class="snippet" data-ng-repeat="word in wordBank" data-as-sortable-item>
+          <div data-as-sortable-item-handle>{{word}}</div>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+</div>
+</body>
+
+</html>

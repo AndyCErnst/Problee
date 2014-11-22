@@ -1,0 +1,27 @@
+.snippet {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 5px;
+  margin: 1px;
+  background-color: rgb(208,208,208);
+}
+
+.field {
+  min-height: 1.5em;
+  min-width: 4em;
+  background-color: rgb(158,158,158);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#word-bank {
+  list-style: none;
+  border: 1px solid black;
+
+}
+
+#problem-area {
+  border: 1px solid black;
+  min-height: 10em;
+  width: 100%;
+}
