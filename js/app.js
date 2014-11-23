@@ -1,20 +1,17 @@
 'use strict';
 
-var probleeApp = angular.module('probleeApp', ['ui.sortable']);
+var probleeApp = angular.module('probleeApp', ['ngDraggable']);
 
 probleeApp.controller('probleeDragDropController', ['$scope', '$http',
   function($scope, $http) {
     $scope.introText = 'intro text';
     $scope.problem = {};
     $scope.wordBank = ['"hello"','return','var','other thing'];
-
-    $scope.dragControlListeners = {
-      accept: function (sourceItemHandleScope, destSortableScope) {return true;},
-      itemMoved: function (event) {},
-      orderChanged: function(event) {},
-      containment: 'body'
-    };
+    $scope.onDropComplete=function(data,evt){
+      console.log("drop success, data:", data, evt);
+    }
   }
+
   ]);
 
 // var problems = [
