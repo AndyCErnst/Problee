@@ -1,43 +1,135 @@
 var App = angular.module('drag-and-drop', ['ngDragDrop']);
 
 App.controller('oneCtrl', function($scope, $timeout) {
-  $scope.answerFields = [  {'submitted':[],
-                            'correct':[] },
+  $scope.fieldData = [
+      [
+      {'submitted':[],
+      'correct':'"hello"' },
+      {'submitted':[],
+      'correct':'return' }
+      ],
 
-                            {'submitted':[],
-                            'correct':[] }
+      [
+      {'submitted':[],
+      'correct':'table.length' }
+      ],
+
+      [
+      {'submitted':[],
+      'correct':'var' },
+      {'submitted':[],
+      'correct':'foo' },
+      {'submitted':[],
+      'correct':'"hello"' },
+      {'submitted':[],
+      'correct':'return' }
+      ],
   ];
- 
-  $scope.wordBank = [
-    { 'title': 'hello', 'drag': true },
-    { 'title': 'return', 'drag': true },
-    { 'title': 'do while', 'drag': true },
-    { 'title': '===', 'drag': true },
-    { 'title': '"hello"', 'drag': true },
-    { 'title': '+=', 'drag': true },
-    { 'title': 'var foo', 'drag': true },
-    { 'title': 'function()', 'drag': true },
-    { 'title': 'this.foo', 'drag': true },
+  $scope.infoText = [
+    'Using the variable foo, return the String "Hello"',
+    'This function finds of index of "value" in "table." Drag in the missing part.\nin: [4,5,6,7], 6\nout: 2',
+    'Using the variable foo, return the String "Hello"',
+  ];
+  $scope.wordBankData = [
+    [
+      { 'title': 'hello', 'drag': true },
+      { 'title': 'return', 'drag': true },
+      { 'title': 'do while', 'drag': true },
+      { 'title': '===', 'drag': true },
+      { 'title': '"hello"', 'drag': true },
+      { 'title': '+=', 'drag': true },
+      { 'title': 'var foo', 'drag': true },
+      { 'title': 'function()', 'drag': true },
+      { 'title': 'this.foo', 'drag': true },
+    ],
+    [
+      { 'title': 'value2', 'drag': true },
+      { 'title': 'table', 'drag': true },
+      { 'title': 'table.length', 'drag': true },
+      { 'title': 'value', 'drag': true },
+      { 'title': 'i', 'drag': true },
+      { 'title': '10', 'drag': true },
+      { 'title': 'this', 'drag': true },
+    ],
+    [
+      { 'title': 'return', 'drag': true },
+      { 'title': 'var', 'drag': true },
+      { 'title': 'foo', 'drag': true },
+      { 'title': 'this', 'drag': true },
+      { 'title': '"hello"', 'drag': true },
+      { 'title': '"hello"', 'drag': true },
+      { 'title': 'function()', 'drag': true },
+      { 'title': 'hello', 'drag': true },
+      { 'title': 'this.foo', 'drag': true },
+    ]
   ];
 
-  // Limit items to be dropped in list1
-  $scope.optionsList1 = {
-    accept: function(dragEl) {
-      if ($scope.f1.length == 0) {
-        return true;
+  $scope.problemIndex = 0;
+
+  $scope.answerFields = $scope.fieldData[$scope.problemIndex];
+  $scope.wordBank = $scope.wordBankData[$scope.problemIndex];
+
+  $scope.popWord = function(index) {
+    val = $scope.answerFields[index].submitted.pop();
+    $scope.wordBank.push(val);
+  };
+
+  $scope.problemComplete = false;
+
+  $scope.submitAnswer = function(){
+    if($scope.problemComplete){
+      $scope.showNextProblem();
+    } else {
+      if(checkAnswer()) {
+        $scope.problemComplete = true;
+        $('.alert').show().removeClass('alert-danger').addClass('alert-success').text('Good Job');
+        $('#submit').text('Next Problem');
+        $('#skip').hide();
       } else {
-        return false;
+        $('.alert').show().removeClass('alert-success').addClass('alert-danger').text('Incorrect! Check the test cases for clues as to what went wrong.');
       }
+      setTimeout(function(){
+        $('.alert').fadeOut();
+      }, 6000);
     }
   };
 
-  $scope.popWord = function(index) {
-      console.log("removing word");
-      val = $scope.answerFields[index]["submitted"].pop();
-      $scope.wordBank.push(val);
-  }
+  var checkAnswer = function(){
+    $('.field').removeClass('has-error');
+    var allCorrect = true;
+    for(var i = 0; $scope.answerFields[i]; i++){
+      if(!$scope.answerFields[i].submitted[0] ||
+        ($scope.answerFields[i].submitted[0].title !== $scope.answerFields[i].correct)) {
 
-   $scope.checkAnswer=function(){
+        allCorrect = false;
+        $('.field'+i).addClass('has-error');
+      }
     }
+    return allCorrect;
+  };
+
+  $scope.showNextProblem = function(){
+    $('#submit').text('Submit');
+    $('#skip').show();
+    $('.field').removeClass('has-error');
+    $('.alert').hide();
+    $scope.problemComplete = false;
+    $scope.problemIndex ++;
+    if($scope.problemIndex >= $scope.fieldData.length) {
+      $scope.problemIndex = 0;
+    }
+    $scope.showProblem($scope.problemIndex);
+  };
+
+  $scope.showProblem = function(problemNum){
+    $('.problemCode').hide();
+    $('#problem' + problemNum).show();
+    $scope.answerFields = $scope.fieldData[problemNum];
+    $scope.wordBank = $scope.wordBankData[problemNum];
+  };
+
+  $('.alert').on('click', function(){
+    $(this).hide();
+  });
 
 });
