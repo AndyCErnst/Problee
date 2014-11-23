@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/main.css">
 
-  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-  <script type="text/javascript" src="bower_components/ngDraggable/ngDraggable.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+  <script type="text/javascript" src="js/vendor/ngDraggable/ngDraggable.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
 </head>
 
@@ -24,8 +24,8 @@
           <div id="problem-area">
             <code class="drop-section" >
               function() {<br>
-              var foo = <span class="field" ng-drop="true" ng-drop-success="onDropComplete($data,$event)" ng-model="problem.fields[0]">{{problem.fields[0]}}</span> foo;<br>
-              <span class="field" ng-drop="true" ng-drop-success="onDropComplete($data,$event)" ng-model="problem.fields[1]">{{problem.fields[1]}}</span> foo;<br>
+              var foo = <span class="field" ng-drop="true" ng-drop-success="onDropComplete0($data,$event)" ng-model="problem.fields[0]">{{problem.fields[0]}}</span> foo;<br>
+              <span class="field" ng-drop="true" ng-drop-success="onDropComplete1($data,$event)" ng-model="problem.fields[1]">{{problem.fields[1]}}</span> foo;<br>
             }
           </code>
         </div>
@@ -37,7 +37,7 @@
 
     <ul id="word-bank" ng-model="wordBank">
       <li data-ng-repeat="word in wordBank" >
-        <div class="snippet" ng-drag="true" ng-drag-data="word">{{word}}</div>
+        <div class="snippet" ng-drag="true" ng-drag-success="onDragSuccessBank($data,$event)" ng-drag-data="word">{{word}}</div>
       </li>
     </ul>
 
