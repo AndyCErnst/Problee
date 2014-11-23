@@ -50,7 +50,7 @@ probleeApp.controller('probleeDragDropController', ['$scope', '$http',
         $('.message').show().removeClass('successMessage').text('Try again');
       }
       setTimeout(function(){
-        $('.message').hide();
+        $('.message').fadeOut();
       }, 3000);
     };
 

@@ -24,25 +24,23 @@
         </div>
         <section class="col-xs-12">
           <div id="problem-area">
-            <code class="drop-section" >
-              function() {<br>
-              var foo =
-              <span class="field field0" ng-drop="true" ng-drop-success="onDropComplete(0,$data,$event)" ng-click="onClick(0)">{{fields.field0.userAnswer}}</span>;<br>
-              <span class="field field1" ng-drop="true" ng-drop-success="onDropComplete(1,$data,$event)" ng-click="onClick(1)">{{fields.field1.userAnswer}}</span>
-              foo;<br>}
-            </code>
+<pre class="drop-section" >
+function() {
+  var foo = <span class="field field0" ng-drop="true" ng-drop-success="onDropComplete(0,$data,$event)" ng-click="onClick(0)">{{fields.field0.userAnswer}}</span>;
+  <span class="field field1" ng-drop="true" ng-drop-success="onDropComplete(1,$data,$event)" ng-click="onClick(1)">{{fields.field1.userAnswer}}</span> foo;
+}
+</pre>
           </div>
         </section>
       </div>
-      <hr>
       <div class="message"></div>
-      <div class="col-xs-12" >
+      <section class="col-xs-12" >
         <ul id="word-bank" ng-model="wordBank">
           <li data-ng-repeat="word in wordBank" class="snippet" ng-drag="true" ng-drag-success="onDragSuccessBank($data,$event)" ng-drag-data="word">
             {{word}}
           </li>
         </ul>
-      </div>
+      </section>
       <div class="col-xs-12" id="bottom-buttons">
         <button id="submit" ng-click="submitAnswer()" class="btn btn-primary" type="button">Submit</button>
       </div>

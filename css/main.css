@@ -1,9 +1,11 @@
 
 #problem-area {
-  border: 1px solid black;
-  min-height: 10em;
   width: 100%;
   line-height: 150%;
+}
+
+#problem-area pre {
+  min-height: 3em;
 }
 
 .field {
