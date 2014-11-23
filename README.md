@@ -1,5 +1,3 @@
 Problee
 =======
-To get this working you must have bower installed.
-
-Clone the repo, then from the project directory type bower install. Open index.html to run the app.
+Open index.html in a web browser to try this app out.
