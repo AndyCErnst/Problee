@@ -27,7 +27,7 @@ App.controller('oneCtrl', function($scope, $timeout) {
   ];
   $scope.infoText = [
     'Using the variable foo, return the String "Hello"',
-    'This function finds of index of "value" in "table." Drag in the missing part.\nin: [4,5,6,7], 6\nout: 2',
+    'This function finds of index of "value" in "table." Drag in the missing part.  \ninput: [4,5,6,7], 6\noutput: 2',
     'Using the variable foo, return the String "Hello"',
   ];
   $scope.wordBankData = [
