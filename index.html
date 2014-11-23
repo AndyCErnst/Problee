@@ -24,8 +24,11 @@
           <div id="problem-area">
             <code class="drop-section" >
               function() {<br>
-              var foo = <span class="field" ng-drop="true" ng-drop-success="onDropComplete0($data,$event)" ng-model="problem.fields[0]">{{problem.fields[0]}}</span> foo;<br>
-              <span class="field" ng-drop="true" ng-drop-success="onDropComplete1($data,$event)" ng-model="problem.fields[1]">{{problem.fields[1]}}</span> foo;<br>
+              var foo =
+              <span class="field" ng-drop="true" ng-drop-success="onDropComplete(0,$data,$event)" ng-model="fields[0]" ng-click="onClick(0)">{{fields[0]}}</span>
+              foo;<br>
+              <span class="field" ng-drop="true" ng-drop-success="onDropComplete(1,$data,$event)" ng-model="fields[1]">{{fields[1]}}</span>
+              foo;<br>
             }
           </code>
         </div>
