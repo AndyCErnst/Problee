@@ -4,32 +4,46 @@ var probleeApp = angular.module('probleeApp', ['ngDraggable']);
 
 probleeApp.controller('probleeDragDropController', ['$scope', '$http',
   function($scope, $http) {
-    $scope.introText = 'intro text';
-    $scope.fields = [];
-    $scope.wordBank = ['"hello"','return','var','other thing'];
 
-    $scope.onDropComplete=function(fieldNum,data,evt){
-      $scope.fields[fieldNum] = data;
-    };
-    $scope.onClick=function(fieldNum){
-      var snippet = $scope.fields.splice(fieldNum, 1);
-      console.log(snippet);
-      $scope.wordBank.push(snippet[0]);
+    var answerField = function(correctAnswer) {
+      this.correctAnswer = correctAnswer;
+      this.userAnswer = null;
     };
 
-    $scope.onDragSuccessFields=function(data,evt){
-      var index = $scope.fields.indexOf(data);
-      if (index > -1) {
-        $scope.fields.splice(index, 1);
+    $scope.introText = 'Return the word "hello"';
+
+    $scope.fields = {
+      field0: new answerField('"hello"'),
+      field1: new answerField('return')
+    };
+
+    $scope.wordBank = ['"hello"','return','var','hello'];
+
+    $scope.onDropComplete = function(fieldNum,data,evt){
+      if($scope.fields['field'+fieldNum].userAnswer === null) {
+        $scope.fields['field'+fieldNum].userAnswer = data;
+      } else {
+        $scope.wordBank.push(data); // Undo the change
       }
     };
 
-    $scope.onDragSuccessBank=function(data,evt){
+    $scope.onClick = function(fieldNum){
+      var snippet = $scope.fields['field'+fieldNum].userAnswer;
+      $scope.fields['field'+fieldNum].userAnswer = null;
+      if(snippet) {
+        $scope.wordBank.push(snippet);
+      }
+    };
+
+    $scope.onDragSuccessBank = function(data,evt){
       var index = $scope.wordBank.indexOf(data);
       if (index > -1) {
         $scope.wordBank.splice(index, 1);
       }
     };
+
+    $scope.checkAnswer=function(){
+    }
   }
 
   ]);

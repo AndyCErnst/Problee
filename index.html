@@ -25,30 +25,26 @@
             <code class="drop-section" >
               function() {<br>
               var foo =
-              <span class="field" ng-drop="true" ng-drop-success="onDropComplete(0,$data,$event)" ng-model="fields[0]" ng-click="onClick(0)">{{fields[0]}}</span>
-              foo;<br>
-              <span class="field" ng-drop="true" ng-drop-success="onDropComplete(1,$data,$event)" ng-model="fields[1]">{{fields[1]}}</span>
-              foo;<br>
-            }
-          </code>
-        </div>
-      </section>
+              <span class="field" ng-drop="true" ng-drop-success="onDropComplete(0,$data,$event)" ng-click="onClick(0)">{{fields.field0.userAnswer}}</span>;<br>
+              <span class="field" ng-drop="true" ng-drop-success="onDropComplete(1,$data,$event)" ng-click="onClick(1)">{{fields.field1.userAnswer}}</span>
+              foo;<br>}
+            </code>
+          </div>
+        </section>
+      </div>
+      <hr />
+      <div class="col-xs-12" >
+        <ul id="word-bank" ng-model="wordBank">
+          <li data-ng-repeat="word in wordBank" class="snippet" ng-drag="true" ng-drag-success="onDragSuccessBank($data,$event)" ng-drag-data="word">
+            {{word}}
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-12" id="bottom-buttons">
+        <button id="submit" ng-click="checkAnswer()" class="btn btn-primary" type="button">Submit</button>
+      </div>
     </div>
   </div>
-  <hr />
-  <div class="col-xs-12" >
-
-    <ul id="word-bank" ng-model="wordBank">
-      <li data-ng-repeat="word in wordBank" >
-        <div class="snippet" ng-drag="true" ng-drag-success="onDragSuccessBank($data,$event)" ng-drag-data="word">{{word}}</div>
-      </li>
-    </ul>
-
-  </div>
-
-</div>
-</div>
-</div>
 </body>
 
 </html>
