@@ -1,9 +1,9 @@
-.snippet {
+
+#problem-area {
   border: 1px solid black;
-  display: inline-block;
-  padding: 5px;
-  margin: 1px;
-  background-color: rgb(208,208,208);
+  min-height: 10em;
+  width: 100%;
+  line-height: 150%;
 }
 
 .field {
@@ -14,15 +14,34 @@
   vertical-align: middle;
 }
 
+.has-error {
+  box-shadow: 0px 0px 9px 2px #FF0000;
+}
+
 #word-bank {
   list-style: none;
   border: 1px solid black;
-
 }
 
-#problem-area {
+
+.snippet {
   border: 1px solid black;
-  min-height: 10em;
-  width: 100%;
-  line-height: 150%;
+  display: inline-block;
+  padding: 5px;
+  margin: 1px;
+  background-color: rgb(208,208,208);
+}
+
+.message {
+  text-align: center;
+  padding: .5em;
+  width: 10em;
+  display: none;
+  font-size: 2em;
+  border: 3px solid red;
+}
+
+.message.successMessage{
+  color: black;
+  border-color: green;
 }

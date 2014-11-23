@@ -5,7 +5,7 @@ var probleeApp = angular.module('probleeApp', ['ngDraggable']);
 probleeApp.controller('probleeDragDropController', ['$scope', '$http',
   function($scope, $http) {
 
-    var answerField = function(correctAnswer) {
+    var AnswerField = function(correctAnswer) {
       this.correctAnswer = correctAnswer;
       this.userAnswer = null;
     };
@@ -13,13 +13,14 @@ probleeApp.controller('probleeDragDropController', ['$scope', '$http',
     $scope.introText = 'Return the word "hello"';
 
     $scope.fields = {
-      field0: new answerField('"hello"'),
-      field1: new answerField('return')
+      field0: new AnswerField('"hello"'),
+      field1: new AnswerField('return')
     };
 
     $scope.wordBank = ['"hello"','return','var','hello'];
 
     $scope.onDropComplete = function(fieldNum,data,evt){
+      $('.field'+fieldNum).removeClass('has-error');
       if($scope.fields['field'+fieldNum].userAnswer === null) {
         $scope.fields['field'+fieldNum].userAnswer = data;
       } else {
@@ -42,17 +43,27 @@ probleeApp.controller('probleeDragDropController', ['$scope', '$http',
       }
     };
 
-    $scope.checkAnswer=function(){
-    }
+    $scope.submitAnswer = function(){
+      if(checkAnswer()) {
+        $('.message').show().addClass('successMessage').text('Good Job');
+      } else {
+        $('.message').show().removeClass('successMessage').text('Try again');
+      }
+      setTimeout(function(){
+        $('.message').hide();
+      }, 3000);
+    };
+
+    var checkAnswer = function(){
+      var allCorrect = true;
+      _.forEach($scope.fields, function(field, index){
+        if(field.correctAnswer !== field.userAnswer) {
+          $('.'+index).addClass('has-error');
+          allCorrect = false;
+        }
+      });
+      return allCorrect;
+    };
   }
 
   ]);
-
-// var problems = [
-// {
-//   introText: '',
-//   tags: [],
-//   difficulty: 1,
-
-// },
-// ];

@@ -7,9 +7,11 @@
   <link rel="stylesheet" type="text/css" href="css/main.css">
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
   <script type="text/javascript" src="js/vendor/ngDraggable/ngDraggable.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+
 </head>
 
 <body ng-controller="probleeDragDropController">
@@ -25,14 +27,15 @@
             <code class="drop-section" >
               function() {<br>
               var foo =
-              <span class="field" ng-drop="true" ng-drop-success="onDropComplete(0,$data,$event)" ng-click="onClick(0)">{{fields.field0.userAnswer}}</span>;<br>
-              <span class="field" ng-drop="true" ng-drop-success="onDropComplete(1,$data,$event)" ng-click="onClick(1)">{{fields.field1.userAnswer}}</span>
+              <span class="field field0" ng-drop="true" ng-drop-success="onDropComplete(0,$data,$event)" ng-click="onClick(0)">{{fields.field0.userAnswer}}</span>;<br>
+              <span class="field field1" ng-drop="true" ng-drop-success="onDropComplete(1,$data,$event)" ng-click="onClick(1)">{{fields.field1.userAnswer}}</span>
               foo;<br>}
             </code>
           </div>
         </section>
       </div>
-      <hr />
+      <hr>
+      <div class="message"></div>
       <div class="col-xs-12" >
         <ul id="word-bank" ng-model="wordBank">
           <li data-ng-repeat="word in wordBank" class="snippet" ng-drag="true" ng-drag-success="onDragSuccessBank($data,$event)" ng-drag-data="word">
@@ -41,7 +44,7 @@
         </ul>
       </div>
       <div class="col-xs-12" id="bottom-buttons">
-        <button id="submit" ng-click="checkAnswer()" class="btn btn-primary" type="button">Submit</button>
+        <button id="submit" ng-click="submitAnswer()" class="btn btn-primary" type="button">Submit</button>
       </div>
     </div>
   </div>
