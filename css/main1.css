@@ -1,0 +1,81 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 10px 10px;
+  text-align: left;
+}
+
+.btn-droppable {}
+      .btn-draggable { margin:1%;}
+
+.field {
+        height: 40px;
+
+        width:80px;
+        border: 1px solid gray;
+        display: inline-block;
+        vertical-align: middle;
+     }
+
+
+.codingArea {
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+       width: 100%;
+       float: left;
+       background-color: #292929;
+       border: 1px solid #dcdcdc;
+       font-size: 1.4em;
+}
+
+
+.problemDesc {
+       padding-top:15px;
+       padding-bottom:5px;
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+       width: 100%;
+       float: left;
+       background-color: #f5f5f5;
+       border: 1px solid #dcdcdc;
+       font-size: 1.4em;
+       }
+
+.problemCode {
+       background-color: transparent;
+       border:none;
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+       font-size: 1.4em;
+       color:white;
+       }
+
+.codeHighlight {
+    color: #0076B5;      
+}
+
+.wordBank {
+       padding-top:15px;
+       padding-bottom:10px;
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+       width: 100%;
+       float: left;
+       font-size: 1.4em;
+}
+
+
+.error {
+       width:100%;
+       font-size: 25px;
+       color: red;
+       font-weight: bold;
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.success {
+   font-size: 25px;
+   color: green;
+   font-weight: bold;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   width:100%;
+}
+
+
