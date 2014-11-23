@@ -1,15 +1,20 @@
-
+body{
+  font-size: 2em;
+}
 #problem-area {
   width: 100%;
   line-height: 150%;
 }
 
-#problem-area pre {
+#problem-area .drop-section {
+  font-size: 1em;
+  line-height: 1.4em;
   min-height: 3em;
+  display: none;
 }
 
 .field {
-  min-height: 1.5em;
+  min-height: 1.2em;
   min-width: 4em;
   background-color: rgb(158,158,158);
   display: inline-block;

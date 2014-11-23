@@ -2,22 +2,18 @@
 
 var probleeApp = angular.module('probleeApp', ['ngDraggable']);
 
-probleeApp.controller('probleeDragDropController', ['$scope', '$http',
-  function($scope, $http) {
+probleeApp.controller('probleeDragDropController', ['$scope',
+  function($scope) {
 
-    var AnswerField = function(correctAnswer) {
-      this.correctAnswer = correctAnswer;
-      this.userAnswer = null;
+    var loadProblem = function(problem){
+      $('.drop-section').hide();
+      $scope.template = $('#' + problem.template).show();
+      $scope.introText = problem.introText;
+      $scope.fields = problem.fields;
+      $scope.wordBank = problem.wordBank;
     };
 
-    $scope.introText = 'Return the word "hello"';
-
-    $scope.fields = {
-      field0: new AnswerField('"hello"'),
-      field1: new AnswerField('return')
-    };
-
-    $scope.wordBank = ['"hello"','return','var','hello'];
+    loadProblem(function1_dragA);
 
     $scope.onDropComplete = function(fieldNum,data,evt){
       $('.field'+fieldNum).removeClass('has-error');
@@ -67,3 +63,43 @@ probleeApp.controller('probleeDragDropController', ['$scope', '$http',
   }
 
   ]);
+
+
+var AnswerField = function(correctAnswer) {
+  this.correctAnswer = correctAnswer;
+  this.userAnswer = null;
+};
+
+var function1_dragA = {
+  template: 'function1_dragA',
+  introText: 'Return the word "hello"',
+  fields: {
+      field0: new AnswerField('"hello"'),
+      field1: new AnswerField('return')
+   },
+   wordBank: ['"hello"','return','var','hello']
+};
+
+var function1_dragB = {
+  template: 'function1_dragB',
+  introText: 'Return the word "hello"',
+  fields: {
+      field0: new AnswerField('var'),
+      field1: new AnswerField('"hello"'),
+      field2: new AnswerField('return')
+   },
+   wordBank: ['magic','return','"hello"','var','hello', 'variable']
+};
+
+var function1_dragC = {
+  template: 'function1_dragC',
+  introText: 'Return the word "hello"',
+  fields: {
+    field0: new AnswerField('var'),
+    field1: new AnswerField('foo'),
+    field2: new AnswerField('"hello"'),
+    field3: new AnswerField('return'),
+    field4: new AnswerField('foo'),
+   },
+   wordBank: ['function','"hello"','return','var','while','variable','hello']
+};

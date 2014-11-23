@@ -24,12 +24,25 @@
         </div>
         <section class="col-xs-12">
           <div id="problem-area">
-<pre class="drop-section" >
+<pre id="function1_dragA" class="drop-section">
 function() {
   var foo = <span class="field field0" ng-drop="true" ng-drop-success="onDropComplete(0,$data,$event)" ng-click="onClick(0)">{{fields.field0.userAnswer}}</span>;
   <span class="field field1" ng-drop="true" ng-drop-success="onDropComplete(1,$data,$event)" ng-click="onClick(1)">{{fields.field1.userAnswer}}</span> foo;
 }
 </pre>
+<pre id="function1_dragB" class="drop-section">
+function() {
+  <span class="field field0" ng-drop="true" ng-drop-success="onDropComplete(0,$data,$event)" ng-click="onClick(0)">{{fields.field0.userAnswer}}</span> foo = <span class="field field1" ng-drop="true" ng-drop-success="onDropComplete(1,$data,$event)" ng-click="onClick(1)">{{fields.field1.userAnswer}}</span>;
+  <span class="field field2" ng-drop="true" ng-drop-success="onDropComplete(2,$data,$event)" ng-click="onClick(2)">{{fields.field2.userAnswer}}</span> foo;
+}
+</pre>
+<pre id="function1_dragC" class="drop-section">
+function() {
+  <span class="field field0" ng-drop="true" ng-drop-success="onDropComplete(0,$data,$event)" ng-click="onClick(0)">{{fields.field0.userAnswer}}</span> <span class="field field1" ng-drop="true" ng-drop-success="onDropComplete(1,$data,$event)" ng-click="onClick(1)">{{fields.field1.userAnswer}}</span> = <span class="field field2" ng-drop="true" ng-drop-success="onDropComplete(2,$data,$event)" ng-click="onClick(2)">{{fields.field2.userAnswer}}</span>;
+  <span class="field field3" ng-drop="true" ng-drop-success="onDropComplete(3,$data,$event)" ng-click="onClick(3)">{{fields.field3.userAnswer}}</span> <span class="field field4" ng-drop="true" ng-drop-success="onDropComplete(4,$data,$event)" ng-click="onClick(4)">{{fields.field4.userAnswer}}</span>;
+}
+</pre>
+
           </div>
         </section>
       </div>
